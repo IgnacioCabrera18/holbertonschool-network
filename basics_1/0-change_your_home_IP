@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Configures an Ubuntu server to change IP resolution for localhost and facebook.com
 
-sudo sed -i '/localhost/d' /etc/hosts
-sudo sed -i '/facebook.com/d' /etc/hosts
-sudo bash -c 'echo "127.0.0.2 localhost" >> /etc/hosts'
-sudo bash -c 'echo "8.8.8.8 facebook.com" >> /etc/hosts'
+grep -v localhost /etc/hosts | grep -v facebook.com > /tmp/hosts_temp
+echo "127.0.0.2 localhost" >> /tmp/hosts_temp
+echo "8.8.8.8 facebook.com" >> /tmp/hosts_temp
+cp /tmp/hosts_temp /etc/hosts
