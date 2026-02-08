@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Configures an Ubuntu server to change IP resolution for localhost and facebook.com
 
 cp /etc/hosts ~/hosts.backup
 sed -i '/localhost/d' /etc/hosts
